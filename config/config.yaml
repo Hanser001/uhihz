@@ -1,0 +1,32 @@
+database:
+  mysql:
+    addr: 39.101.68.42
+    port: 3306
+    username: root
+    password: 'Wjj20040311!'
+    db: 'zhihu'
+    charset: utf8mb4
+    connMaxIdleTime: '180s'
+    connMaxLifeTime: '1800s'
+    maxIdleConns: 5
+    maxOpenConns: 10
+    redis:
+      addr: 39.101.68.42
+      port: 6379
+      password: 'Wjj20040311'
+      db: 0
+      poolSize: 10
+      network: 'tcp'
+
+logger:
+  logLevel: 'debug'
+  maxSize: 5
+  maxAge: 100
+  Compress: 'true'
+  maxBackups: 5
+
+server:
+  mode: 'release'
+  port: '8077'
+  readTimeout: '60s'
+  writeTimeout: '60s'

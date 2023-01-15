@@ -1,0 +1,249 @@
+[2023-01-15 16:31:30.887]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 16:31:31.369]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:34	initialize mysql successfully!
+[2023-01-15 16:36:41.681]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 16:36:42.035]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:34	initialize mysql successfully!
+[2023-01-15 16:37:27.876]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 16:37:28.231]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:34	initialize mysql successfully!
+[2023-01-15 16:37:28.232]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/server.go:27	initialize server successfully!	{"port": ":8077"}
+[2023-01-15 16:37:33.605]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/register	{"status": 200, "method": "POST", "path": "/api/v1/users/register", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "277.4816ms"}
+[2023-01-15 16:37:43.932]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/register	{"status": 500, "method": "POST", "path": "/api/v1/users/register", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "116.5416ms"}
+[2023-01-15 16:39:00.679]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 16:39:01.045]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:34	initialize mysql successfully!
+[2023-01-15 16:40:49.774]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 16:40:50.151]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:34	initialize mysql successfully!
+[2023-01-15 16:41:49.810]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 16:41:50.178]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:34	initialize mysql successfully!
+[2023-01-15 16:42:27.081]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 16:42:27.457]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:34	initialize mysql successfully!
+[2023-01-15 16:42:27.458]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/server.go:27	initialize server successfully!	{"port": ":8077"}
+[2023-01-15 16:42:39.652]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/login	{"status": 200, "method": "POST", "path": "/api/v1/users/login", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "407.2636ms"}
+[2023-01-15 16:42:55.660]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/login	{"status": 200, "method": "POST", "path": "/api/v1/users/login", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "408.8125ms"}
+[2023-01-15 16:43:40.421]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 16:43:40.864]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:34	initialize mysql successfully!
+[2023-01-15 16:43:40.864]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/server.go:27	initialize server successfully!	{"port": ":8077"}
+[2023-01-15 16:43:43.586]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/login	{"status": 200, "method": "POST", "path": "/api/v1/users/login", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "451.6391ms"}
+[2023-01-15 16:43:51.778]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/login	{"status": 200, "method": "POST", "path": "/api/v1/users/login", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "432.6353ms"}
+[2023-01-15 16:44:37.885]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 16:44:38.193]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:34	initialize mysql successfully!
+[2023-01-15 16:44:38.193]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/server.go:27	initialize server successfully!	{"port": ":8077"}
+[2023-01-15 16:44:41.571]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/login	{"status": 400, "method": "POST", "path": "/api/v1/users/login", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "241.3157ms"}
+[2023-01-15 16:44:48.882]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/login	{"status": 200, "method": "POST", "path": "/api/v1/users/login", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "367.327ms"}
+[2023-01-15 16:45:06.206]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/login	{"status": 400, "method": "POST", "path": "/api/v1/users/login", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "256.526ms"}
+[2023-01-15 16:46:53.196]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 16:46:53.554]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:33	initialize mysql successfully!
+[2023-01-15 16:48:37.950]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 16:48:38.253]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:33	initialize mysql successfully!
+[2023-01-15 16:50:37.268]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 16:50:37.634]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:34	initialize mysql successfully!
+[2023-01-15 16:53:29.182]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 16:53:29.537]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:34	initialize mysql successfully!
+[2023-01-15 16:59:29.981]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 16:59:30.322]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:34	initialize mysql successfully!
+[2023-01-15 17:01:52.765]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 17:01:53.178]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:38	initialize mysql successfully!
+[2023-01-15 17:02:26.543]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 17:02:26.907]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:34	initialize mysql successfully!
+[2023-01-15 17:05:34.965]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 17:05:35.333]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:34	initialize mysql successfully!
+[2023-01-15 17:08:09.528]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 17:08:09.950]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:34	initialize mysql successfully!
+[2023-01-15 17:08:10.100]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:61	initialize redis client successfully!
+[2023-01-15 17:08:10.100]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/server.go:27	initialize server successfully!	{"port": ":8077"}
+[2023-01-15 17:08:56.162]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/login	{"status": 200, "method": "POST", "path": "/api/v1/users/login", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "413.7122ms"}
+[2023-01-15 17:09:35.799]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/register	{"status": 200, "method": "POST", "path": "/api/v1/users/register", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "278.0237ms"}
+[2023-01-15 17:12:39.049]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 17:12:39.365]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:34	initialize mysql successfully!
+[2023-01-15 17:12:39.540]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:61	initialize redis client successfully!
+[2023-01-15 17:12:39.541]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/server.go:27	initialize server successfully!	{"port": ":8077"}
+[2023-01-15 17:12:51.490]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/1	{"status": 200, "method": "GET", "path": "/api/v1/users/1", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "127.583ms"}
+[2023-01-15 17:14:45.392]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/	{"status": 404, "method": "GET", "path": "/api/v1/users/", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "0s"}
+[2023-01-15 17:14:50.020]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/1	{"status": 200, "method": "GET", "path": "/api/v1/users/1", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "97.8545ms"}
+[2023-01-15 17:16:35.872]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 17:16:36.222]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:34	initialize mysql successfully!
+[2023-01-15 17:16:36.378]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:61	initialize redis client successfully!
+[2023-01-15 17:16:36.378]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/server.go:27	initialize server successfully!	{"port": ":8077"}
+[2023-01-15 17:16:38.386]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/1	{"status": 200, "method": "GET", "path": "/api/v1/users/1", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "112.7325ms"}
+[2023-01-15 17:19:37.927]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 17:19:38.678]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:34	initialize mysql successfully!
+[2023-01-15 17:19:39.019]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:61	initialize redis client successfully!
+[2023-01-15 17:19:39.020]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/server.go:27	initialize server successfully!	{"port": ":8077"}
+[2023-01-15 17:19:39.627]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/1	{"status": 200, "method": "GET", "path": "/api/v1/users/1", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "258.0047ms"}
+[2023-01-15 17:20:32.095]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 17:20:32.456]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:34	initialize mysql successfully!
+[2023-01-15 17:20:32.706]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:61	initialize redis client successfully!
+[2023-01-15 17:20:32.706]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/server.go:27	initialize server successfully!	{"port": ":8077"}
+[2023-01-15 17:20:33.645]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/1	{"status": 200, "method": "GET", "path": "/api/v1/users/1", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "125.2681ms"}
+[2023-01-15 17:21:15.580]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 17:21:15.889]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:34	initialize mysql successfully!
+[2023-01-15 17:21:16.054]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:61	initialize redis client successfully!
+[2023-01-15 17:21:16.054]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/server.go:27	initialize server successfully!	{"port": ":8077"}
+[2023-01-15 17:21:18.317]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/1	{"status": 200, "method": "GET", "path": "/api/v1/users/1", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "97.9013ms"}
+[2023-01-15 17:22:40.490]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 17:22:40.842]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:34	initialize mysql successfully!
+[2023-01-15 17:22:41.037]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:61	initialize redis client successfully!
+[2023-01-15 17:22:41.038]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/server.go:27	initialize server successfully!	{"port": ":8077"}
+[2023-01-15 17:22:53.984]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/1	{"status": 200, "method": "GET", "path": "/api/v1/users/1", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "127.3076ms"}
+[2023-01-15 17:24:06.891]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 17:24:07.206]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:34	initialize mysql successfully!
+[2023-01-15 17:24:07.360]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:61	initialize redis client successfully!
+[2023-01-15 17:24:07.361]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/server.go:27	initialize server successfully!	{"port": ":8077"}
+[2023-01-15 17:24:09.837]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/1	{"status": 200, "method": "GET", "path": "/api/v1/users/1", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "98.3069ms"}
+[2023-01-15 17:29:33.947]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 17:29:34.374]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:34	initialize mysql successfully!
+[2023-01-15 17:29:34.626]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:61	initialize redis client successfully!
+[2023-01-15 17:29:34.627]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/server.go:27	initialize server successfully!	{"port": ":8077"}
+[2023-01-15 17:29:38.290]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/1	{"status": 200, "method": "GET", "path": "/api/v1/users/1", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "120.7652ms"}
+[2023-01-15 17:39:31.585]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 17:39:32.019]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:33	initialize mysql successfully!
+[2023-01-15 17:39:32.217]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:56	initialize redis client successfully!
+[2023-01-15 17:39:32.218]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/server.go:27	initialize server successfully!	{"port": ":8077"}
+[2023-01-15 17:39:33.784]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/1	{"status": 200, "method": "GET", "path": "/api/v1/users/1", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "113.0426ms"}
+[2023-01-15 17:44:44.943]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 17:44:45.307]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:33	initialize mysql successfully!
+[2023-01-15 17:44:45.458]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:56	initialize redis client successfully!
+[2023-01-15 17:44:45.459]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/server.go:27	initialize server successfully!	{"port": ":8077"}
+[2023-01-15 17:44:46.282]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/1	{"status": 200, "method": "GET", "path": "/api/v1/users/1", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "111.7759ms"}
+[2023-01-15 17:51:45.258]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 17:51:45.680]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:33	initialize mysql successfully!
+[2023-01-15 17:51:45.860]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:56	initialize redis client successfully!
+[2023-01-15 17:51:45.860]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/server.go:27	initialize server successfully!	{"port": ":8077"}
+[2023-01-15 17:52:50.082]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 17:52:50.445]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:33	initialize mysql successfully!
+[2023-01-15 17:52:50.628]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:56	initialize redis client successfully!
+[2023-01-15 17:52:50.629]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/server.go:27	initialize server successfully!	{"port": ":8077"}
+[2023-01-15 17:55:33.988]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 17:55:34.387]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:33	initialize mysql successfully!
+[2023-01-15 17:55:34.555]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:56	initialize redis client successfully!
+[2023-01-15 17:55:34.555]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/server.go:27	initialize server successfully!	{"port": ":8077"}
+[2023-01-15 17:55:35.594]	[31mERROR[0m	E:/jetbrains/goland/zhihu/app/internal/service/user.go:163	missing destination name createTime in *model.User
+[2023-01-15 17:55:35.594]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/1	{"status": 200, "method": "GET", "path": "/api/v1/users/1", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "119.1338ms"}
+[2023-01-15 17:57:33.295]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 17:57:33.642]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:33	initialize mysql successfully!
+[2023-01-15 17:57:33.821]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:56	initialize redis client successfully!
+[2023-01-15 17:57:33.821]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/server.go:27	initialize server successfully!	{"port": ":8077"}
+[2023-01-15 17:57:37.214]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/1	{"status": 200, "method": "GET", "path": "/api/v1/users/1", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "115.1771ms"}
+[2023-01-15 17:59:30.672]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 17:59:30.990]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:33	initialize mysql successfully!
+[2023-01-15 17:59:31.148]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:56	initialize redis client successfully!
+[2023-01-15 17:59:31.149]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/server.go:27	initialize server successfully!	{"port": ":8077"}
+[2023-01-15 18:00:27.202]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 18:00:27.700]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:33	initialize mysql successfully!
+[2023-01-15 18:00:28.006]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:56	initialize redis client successfully!
+[2023-01-15 18:00:28.006]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/server.go:27	initialize server successfully!	{"port": ":8077"}
+[2023-01-15 18:00:32.496]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/user/security/password	{"status": 404, "method": "PUT", "path": "/api/v1/user/security/password", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "0s"}
+[2023-01-15 18:02:07.579]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 18:02:08.021]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:33	initialize mysql successfully!
+[2023-01-15 18:02:08.172]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:56	initialize redis client successfully!
+[2023-01-15 18:02:08.172]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/server.go:27	initialize server successfully!	{"port": ":8077"}
+[2023-01-15 18:02:10.009]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/security/password	{"status": 200, "method": "PUT", "path": "/api/v1/users/security/password", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "365.4966ms"}
+[2023-01-15 18:02:18.251]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/login	{"status": 200, "method": "POST", "path": "/api/v1/users/login", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "327.354ms"}
+[2023-01-15 18:02:32.735]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/login	{"status": 200, "method": "POST", "path": "/api/v1/users/login", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "324.3404ms"}
+[2023-01-15 18:02:44.666]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/security/password	{"status": 200, "method": "PUT", "path": "/api/v1/users/security/password", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "397.3656ms"}
+[2023-01-15 18:07:36.555]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 18:07:36.905]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:33	initialize mysql successfully!
+[2023-01-15 18:07:37.077]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:56	initialize redis client successfully!
+[2023-01-15 18:07:37.077]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/server.go:27	initialize server successfully!	{"port": ":8077"}
+[2023-01-15 18:07:38.771]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/login	{"status": 400, "method": "POST", "path": "/api/v1/users/login", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "112.7471ms"}
+[2023-01-15 18:07:44.494]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/login	{"status": 400, "method": "POST", "path": "/api/v1/users/login", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "114.2082ms"}
+[2023-01-15 18:08:05.385]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/login	{"status": 400, "method": "POST", "path": "/api/v1/users/login", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "115.4417ms"}
+[2023-01-15 18:09:41.758]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/register	{"status": 400, "method": "POST", "path": "/api/v1/users/register", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "0s"}
+[2023-01-15 18:09:46.691]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/register	{"status": 500, "method": "POST", "path": "/api/v1/users/register", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "111.89ms"}
+[2023-01-15 18:10:49.620]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/security/password	{"status": 400, "method": "PUT", "path": "/api/v1/users/security/password", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "226.267ms"}
+[2023-01-15 18:11:24.675]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/security/password	{"status": 200, "method": "PUT", "path": "/api/v1/users/security/password", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "379.8125ms"}
+[2023-01-15 18:11:36.125]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/login	{"status": 400, "method": "POST", "path": "/api/v1/users/login", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "115.6134ms"}
+[2023-01-15 18:13:08.498]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/1	{"status": 200, "method": "GET", "path": "/api/v1/users/1", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "132.1991ms"}
+[2023-01-15 18:14:58.895]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 18:14:59.191]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:33	initialize mysql successfully!
+[2023-01-15 18:14:59.340]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:56	initialize redis client successfully!
+[2023-01-15 18:14:59.341]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/server.go:27	initialize server successfully!	{"port": ":8077"}
+[2023-01-15 18:15:05.321]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/1	{"status": 200, "method": "GET", "path": "/api/v1/users/1", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "97.5533ms"}
+[2023-01-15 18:16:10.809]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 18:16:11.206]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:33	initialize mysql successfully!
+[2023-01-15 18:16:11.348]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:56	initialize redis client successfully!
+[2023-01-15 18:16:11.348]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/server.go:27	initialize server successfully!	{"port": ":8077"}
+[2023-01-15 18:16:12.424]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/1	{"status": 200, "method": "GET", "path": "/api/v1/users/1", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "114.3592ms"}
+[2023-01-15 18:19:19.050]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/2	{"status": 200, "method": "GET", "path": "/api/v1/users/2", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "391.8941ms"}
+[2023-01-15 18:20:16.149]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/register	{"status": 200, "method": "POST", "path": "/api/v1/users/register", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "274.9907ms"}
+[2023-01-15 18:20:31.091]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/security/password	{"status": 200, "method": "PUT", "path": "/api/v1/users/security/password", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "492.3752ms"}
+[2023-01-15 18:20:40.978]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/login	{"status": 400, "method": "POST", "path": "/api/v1/users/login", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "113.7487ms"}
+[2023-01-15 18:20:59.843]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/login	{"status": 400, "method": "POST", "path": "/api/v1/users/login", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "122.8388ms"}
+[2023-01-15 18:21:04.018]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/login	{"status": 400, "method": "POST", "path": "/api/v1/users/login", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "104.3363ms"}
+[2023-01-15 18:21:59.248]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/login	{"status": 400, "method": "POST", "path": "/api/v1/users/login", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "114.1505ms"}
+[2023-01-15 18:22:41.962]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 18:22:42.292]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:33	initialize mysql successfully!
+[2023-01-15 18:22:42.468]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:56	initialize redis client successfully!
+[2023-01-15 18:22:42.469]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/server.go:27	initialize server successfully!	{"port": ":8077"}
+[2023-01-15 18:22:51.588]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/register	{"status": 200, "method": "POST", "path": "/api/v1/users/register", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "309.5297ms"}
+[2023-01-15 18:22:58.330]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/login	{"status": 400, "method": "POST", "path": "/api/v1/users/login", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "97.6271ms"}
+[2023-01-15 18:23:04.778]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/login	{"status": 400, "method": "POST", "path": "/api/v1/users/login", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "95.1115ms"}
+[2023-01-15 18:23:56.359]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/login	{"status": 400, "method": "POST", "path": "/api/v1/users/login", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "98.5673ms"}
+[2023-01-15 18:24:27.065]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/register	{"status": 200, "method": "POST", "path": "/api/v1/users/register", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "245.3942ms"}
+[2023-01-15 18:24:29.312]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/register	{"status": 500, "method": "POST", "path": "/api/v1/users/register", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "124.6668ms"}
+[2023-01-15 18:24:35.594]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/login	{"status": 400, "method": "POST", "path": "/api/v1/users/login", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "98.6726ms"}
+[2023-01-15 18:29:23.342]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 18:29:23.676]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:33	initialize mysql successfully!
+[2023-01-15 18:29:23.860]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:56	initialize redis client successfully!
+[2023-01-15 18:29:23.860]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/server.go:27	initialize server successfully!	{"port": ":8077"}
+[2023-01-15 18:29:28.023]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/login	{"status": 400, "method": "POST", "path": "/api/v1/users/login", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "120.8246ms"}
+[2023-01-15 18:29:35.969]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/login	{"status": 400, "method": "POST", "path": "/api/v1/users/login", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "104.294ms"}
+[2023-01-15 18:33:17.523]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 18:33:17.915]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:33	initialize mysql successfully!
+[2023-01-15 18:33:18.068]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:56	initialize redis client successfully!
+[2023-01-15 18:33:18.068]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/server.go:27	initialize server successfully!	{"port": ":8077"}
+[2023-01-15 18:33:27.777]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 18:33:28.218]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:33	initialize mysql successfully!
+[2023-01-15 18:33:28.414]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:56	initialize redis client successfully!
+[2023-01-15 18:33:28.415]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/server.go:27	initialize server successfully!	{"port": ":8077"}
+[2023-01-15 18:33:43.984]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/register	{"status": 200, "method": "POST", "path": "/api/v1/users/register", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "266.2278ms"}
+[2023-01-15 18:33:52.621]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/login	{"status": 400, "method": "POST", "path": "/api/v1/users/login", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "121.8149ms"}
+[2023-01-15 18:34:01.566]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/login	{"status": 400, "method": "POST", "path": "/api/v1/users/login", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "0s"}
+[2023-01-15 18:34:05.672]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/login	{"status": 400, "method": "POST", "path": "/api/v1/users/login", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "115.3587ms"}
+[2023-01-15 18:36:10.519]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 18:36:10.909]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:33	initialize mysql successfully!
+[2023-01-15 18:36:11.091]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:56	initialize redis client successfully!
+[2023-01-15 18:36:11.092]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/server.go:27	initialize server successfully!	{"port": ":8077"}
+[2023-01-15 18:36:13.189]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/login	{"status": 400, "method": "POST", "path": "/api/v1/users/login", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "114.2336ms"}
+[2023-01-15 18:36:22.013]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/login	{"status": 400, "method": "POST", "path": "/api/v1/users/login", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "115.7673ms"}
+[2023-01-15 18:36:49.674]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 18:36:50.086]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:33	initialize mysql successfully!
+[2023-01-15 18:36:50.237]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:56	initialize redis client successfully!
+[2023-01-15 18:36:50.237]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/server.go:27	initialize server successfully!	{"port": ":8077"}
+[2023-01-15 18:36:50.437]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/login	{"status": 400, "method": "POST", "path": "/api/v1/users/login", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "117.9236ms"}
+[2023-01-15 18:57:10.796]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 18:57:11.171]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:33	initialize mysql successfully!
+[2023-01-15 18:57:11.380]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:56	initialize redis client successfully!
+[2023-01-15 18:57:11.381]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/server.go:27	initialize server successfully!	{"port": ":8077"}
+[2023-01-15 18:57:13.550]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/login	{"status": 400, "method": "POST", "path": "/api/v1/users/login", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "183.9917ms"}
+[2023-01-15 18:58:03.785]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 18:58:04.270]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:33	initialize mysql successfully!
+[2023-01-15 18:58:04.558]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:56	initialize redis client successfully!
+[2023-01-15 18:58:04.558]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/server.go:27	initialize server successfully!	{"port": ":8077"}
+[2023-01-15 18:58:06.068]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/login	{"status": 400, "method": "POST", "path": "/api/v1/users/login", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "330.3749ms"}
+[2023-01-15 18:58:54.685]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 18:58:55.050]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:33	initialize mysql successfully!
+[2023-01-15 18:58:55.197]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:56	initialize redis client successfully!
+[2023-01-15 18:58:55.198]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/server.go:27	initialize server successfully!	{"port": ":8077"}
+[2023-01-15 18:58:59.024]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/login	{"status": 200, "method": "POST", "path": "/api/v1/users/login", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "430.4468ms"}
+[2023-01-15 19:05:51.123]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 19:05:51.560]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:33	initialize mysql successfully!
+[2023-01-15 19:05:51.709]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:56	initialize redis client successfully!
+[2023-01-15 19:05:51.709]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/server.go:27	initialize server successfully!	{"port": ":8077"}
+[2023-01-15 19:06:04.064]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/security/password	{"status": 400, "method": "PUT", "path": "/api/v1/users/security/password", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "353.7981ms"}
+[2023-01-15 19:06:15.232]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/security/password	{"status": 200, "method": "PUT", "path": "/api/v1/users/security/password", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "490.0997ms"}
+[2023-01-15 19:06:23.112]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/login	{"status": 200, "method": "POST", "path": "/api/v1/users/login", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "474.2005ms"}
+[2023-01-15 19:07:25.610]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 19:07:25.984]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:33	initialize mysql successfully!
+[2023-01-15 19:07:26.131]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:56	initialize redis client successfully!
+[2023-01-15 19:07:26.132]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/server.go:27	initialize server successfully!	{"port": ":8077"}
+[2023-01-15 19:07:31.294]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/2	{"status": 200, "method": "GET", "path": "/api/v1/users/2", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "118.3593ms"}
+[2023-01-15 19:07:53.652]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/3	{"status": 200, "method": "GET", "path": "/api/v1/users/3", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "123.612ms"}
+[2023-01-15 19:08:39.177]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 19:08:39.523]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:33	initialize mysql successfully!
+[2023-01-15 19:08:39.697]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:56	initialize redis client successfully!
+[2023-01-15 19:08:39.703]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/server.go:27	initialize server successfully!	{"port": ":8077"}
+[2023-01-15 19:08:41.720]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/3	{"status": 200, "method": "GET", "path": "/api/v1/users/3", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "114.2264ms"}
+[2023-01-15 19:09:46.350]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/logger.go:61	initialize logger successfully!
+[2023-01-15 19:09:46.665]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:33	initialize mysql successfully!
+[2023-01-15 19:09:46.845]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/database.go:56	initialize redis client successfully!
+[2023-01-15 19:09:46.845]	[34mINFO[0m	E:/jetbrains/goland/zhihu/boot/server.go:27	initialize server successfully!	{"port": ":8077"}
+[2023-01-15 19:09:54.963]	[34mINFO[0m	E:/jetbrains/goland/zhihu/app/internal/middleware/logger.go:23	/api/v1/users/login	{"status": 200, "method": "POST", "path": "/api/v1/users/login", "query": "", "ip": "127.0.0.1", "user-agent": "PostmanRuntime-ApipostRuntime/1.1.0", "errors": "", "cost": "346.9026ms"}
