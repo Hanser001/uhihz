@@ -97,3 +97,31 @@ func ReadArticle(c *gin.Context) {
 		"data": article,
 	})
 }
+
+// NewComment 发布评论（一级评论）
+func NewComment(c *gin.Context) {
+	content := c.PostForm("content")
+
+	//解析api参数，得到文章id
+	idString := c.Param("id")
+	id, _ := strconv.Atoi(idString)
+
+	//从token中取出当前用户id
+	uid := c.MustGet("uid").(int)
+
+	err := service.PublicComment(id, uid, content)
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"code": http.StatusBadRequest,
+			"msg":  err.Error(),
+			"ok":   false,
+		})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{
+		"code": http.StatusBadRequest,
+		"msg":  "public comment successfully",
+		"ok":   true,
+	})
+}

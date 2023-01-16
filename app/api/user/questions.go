@@ -85,3 +85,31 @@ func ReadQuestion(c *gin.Context) {
 		"data": question,
 	})
 }
+
+// NewAnswer 发布回答
+func NewAnswer(c *gin.Context) {
+	content := c.PostForm("content")
+
+	//解析API参数得到问题id
+	idString := c.Param("id")
+	id, _ := strconv.Atoi(idString)
+
+	//从token中取出当前用户id
+	uid := c.MustGet("uid").(int)
+
+	err := service.PublicAnswer(id, uid, content)
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"code": http.StatusBadRequest,
+			"msg":  err.Error(),
+			"ok":   false,
+		})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{
+		"code": http.StatusOK,
+		"msg":  "public answer successfully",
+		"ok":   "true",
+	})
+}

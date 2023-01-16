@@ -142,48 +142,66 @@ func GetUserQuestionCollection(uid int) []int {
 }
 
 // PublicAnswer 发布对问题的回答
-func PublicAnswer(qid, uid int, content string) {
+func PublicAnswer(qid, uid int, content string) error {
 	sqlStr := "insert into answer_comment(qid,uid,content) values (?,?,?)"
 	stmt, err := g.Mysql.Prepare(sqlStr)
 
 	if err != nil {
 		g.Logger.Error(err.Error())
-		return
+		return err
 	}
 
 	defer stmt.Close()
 
-	stmt.Exec(qid, uid, content)
+	_, err = stmt.Exec(qid, uid, content)
+
+	if err != nil {
+		g.Logger.Error(err.Error())
+		return err
+	}
+	return nil
 }
 
 // CommentTheAnswer 评论对问题的回答
-func CommentTheAnswer(qid, uid, pid int, content string) {
+func CommentTheAnswer(qid, uid, pid int, content string) error {
 	sqlStr := "insert into answer_comment(qid,uid,pid,content) valuse(?,?,?,?)"
 	stmt, err := g.Mysql.Prepare(sqlStr)
 
 	if err != nil {
 		g.Logger.Error(err.Error())
-		return
+		return err
 	}
 
 	defer stmt.Close()
 
-	stmt.Exec(qid, uid, pid, content)
+	_, err = stmt.Exec(qid, uid, pid, content)
+
+	if err != nil {
+		g.Logger.Error(err.Error())
+		return err
+	}
+	return nil
 }
 
 // ReplyToComment 对评论进行回复
-func ReplyToComment(qid, uid, pid, toUid int, content string) {
+func ReplyToComment(qid, uid, pid, toUid int, content string) error {
 	sqlStr := "insert into answer_comment(qid,uid,pid,toUid,content) values (?,?,?,?,?)"
 	stmt, err := g.Mysql.Prepare(sqlStr)
 
 	if err != nil {
 		g.Logger.Error(err.Error())
-		return
+		return err
 	}
 
 	defer stmt.Close()
 
-	stmt.Exec(qid, uid, pid, toUid, content)
+	_, err = stmt.Exec(qid, uid, pid, toUid, content)
+
+	if err != nil {
+		g.Logger.Error(err.Error())
+		return err
+	}
+	return nil
 }
 
 // LikeToQuestion 点赞问题
