@@ -1,12 +1,16 @@
 package service
 
 import (
+	"context"
+	"fmt"
+	"github.com/go-redis/redis/v8"
+	"strconv"
 	g "zhihu/app/global"
 	"zhihu/app/internal/model"
 )
 
-// PublishArticle 发布文章
-func PublishArticle(uid int, title string, content string) {
+// PublicArticle 发布文章
+func PublicArticle(uid int, title string, content string) {
 	sqlStr := "insert into article(uid,title,content) values (?,?,?)"
 	stmt, err := g.Mysql.Prepare(sqlStr)
 
@@ -14,6 +18,7 @@ func PublishArticle(uid int, title string, content string) {
 		g.Logger.Error("prepare failed")
 		return
 	}
+
 	defer stmt.Close()
 
 	stmt.Exec(uid, title, content)
@@ -34,7 +39,28 @@ func UpdateArticle(content string, id int) {
 	stmt.Exec(content, id)
 }
 
-// SelectArticle 查看文章(该返回什么数据?)
+// GetAuthorId 查询文章作者id
+func GetAuthorId(id int) int {
+	sqlStr := "select uid from article where id=?"
+
+	stmt, err := g.Mysql.Prepare(sqlStr)
+
+	if err != nil {
+		g.Logger.Error("prepare failed")
+		return 0
+	}
+	defer stmt.Close()
+
+	var a model.Article
+
+	stmt.QueryRow(id).Scan(&a.Uid)
+
+	authorId := a.Uid
+
+	return authorId
+}
+
+// SelectArticle 查看文章
 func SelectArticle(id int) model.Article {
 	sqlStr := "select * from article where id=?"
 
@@ -49,9 +75,16 @@ func SelectArticle(id int) model.Article {
 
 	defer stmt.Close()
 
-	stmt.QueryRow(id).Scan(&a.Id, &a.Uid, &a.CreateTime, &a.UpdateTime, &a.Title, &a.Content)
+	stmt.QueryRow(id).Scan(&a.Id, &a.Uid, &a.Title, &a.Content, &a.CreateTime, &a.UpdateTime)
 
 	return a
+}
+
+// AddArticleClick 增加文章点击量
+func AddArticleClick(ctx context.Context, aid int) {
+	key := fmt.Sprintf("articleClick:%s", strconv.Itoa(aid))
+
+	g.Redis.Incr(ctx, key)
 }
 
 // DeleteArticle 删除文章
@@ -118,6 +151,7 @@ func PublicComment(aid, uid int, content string) {
 
 	if err != nil {
 		g.Logger.Error(err.Error())
+		return
 	}
 
 	defer stmt.Close()
@@ -132,6 +166,7 @@ func CommentTheComment(aid, uid, pid int, content string) {
 
 	if err != nil {
 		g.Logger.Error(err.Error())
+		return
 	}
 
 	defer stmt.Close()
@@ -146,6 +181,7 @@ func ReplyTheComment(aid, uid, pid, toUid int, content string) {
 
 	if err != nil {
 		g.Logger.Error(err.Error())
+		return
 	}
 
 	defer stmt.Close()
@@ -153,7 +189,78 @@ func ReplyTheComment(aid, uid, pid, toUid int, content string) {
 	stmt.Exec(aid, uid, pid, toUid, content)
 }
 
-// 点赞评论
-func AddLike() {
+// LikeToArticle 点赞文章
+func LikeToArticle(aid int, uid int, ctx context.Context) {
+	//以article:id为key，userLike:id为value，将所有用户id存入一个set
+	key := fmt.Sprintf("article:%s", strconv.Itoa(aid))
+	value := fmt.Sprintf("userLike:%s", strconv.Itoa(uid))
 
+	intCmd := g.Redis.SAdd(ctx, key, value)
+	_, err := intCmd.Result()
+
+	if err != nil {
+		g.Logger.Error(err.Error())
+		return
+	}
+}
+
+// UnlikeToArticle 取消对文章点赞
+func UnlikeToArticle(aid int, uid int, ctx context.Context) {
+	//以article:id为key，userLike:id为value，将所有用户id存入一个set
+	key := fmt.Sprintf("article:%s", strconv.Itoa(aid))
+	value := fmt.Sprintf("userLike:%s", strconv.Itoa(uid))
+
+	intCmd := g.Redis.SRem(ctx, key, value)
+	_, err := intCmd.Result()
+
+	if err != nil {
+		g.Logger.Error(err.Error())
+		return
+	}
+}
+
+// LikeArticleComment 点赞文章下评论（回复）
+func LikeArticleComment(ctx context.Context, cid int, uid int) {
+	key := fmt.Sprintf("articleComment:%s", strconv.Itoa(cid))
+	value := fmt.Sprintf("userLike:%s", strconv.Itoa(uid))
+
+	intCmd := g.Redis.SAdd(ctx, key, value)
+	_, err := intCmd.Result()
+
+	if err != nil {
+		g.Logger.Error(err.Error())
+		return
+	}
+}
+
+// UnlikeArticleComment 取消对评论（回复）点赞
+func UnlikeArticleComment(ctx context.Context, cid int, uid int) {
+	key := fmt.Sprintf("articleComment:%s", strconv.Itoa(cid))
+	value := fmt.Sprintf("userLike:%s", strconv.Itoa(uid))
+
+	intCmd := g.Redis.SRem(ctx, key, value)
+	_, err := intCmd.Result()
+
+	if err != nil {
+		g.Logger.Error(err.Error())
+		return
+	}
+}
+
+// UpdateArticleHot 更新文章的热度值
+func UpdateArticleHot(c context.Context, aid int, hot int) {
+	//用Zset来保存文章id及其热度
+	key := "articleHot"
+	value := &redis.Z{
+		Score:  float64(hot),
+		Member: aid,
+	}
+
+	g.Redis.ZAdd(c, key, value)
+
+	_, err := g.Redis.ZAdd(c, key, value).Result()
+
+	if err != nil {
+		g.Logger.Error(err.Error())
+	}
 }

@@ -33,7 +33,8 @@ func NewArticle(c *gin.Context) {
 	//从token中取得作者id
 	uid := c.MustGet("uid").(int)
 
-	service.PublishArticle(uid, title, content)
+	service.PublicArticle(uid, title, content)
+
 	c.JSON(http.StatusOK, gin.H{
 		"code": http.StatusOK,
 		"msg":  "public article successfully",
@@ -51,11 +52,25 @@ func UpdateArticle(c *gin.Context) {
 			"msg":  "content can not be null",
 			"ok":   false,
 		})
+		return
 	}
 
-	//这个id应该是文章id，但如何验证当前用户身份？
+	//解析api参数得到文章id
 	idString := c.Param("id")
 	id, _ := strconv.Atoi(idString)
+
+	//从token中取出当前用户id,在查询文章作者id，进行比较
+	uid := c.MustGet("uid").(int)
+	authorId := service.GetAuthorId(id)
+
+	if uid != authorId {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"code": http.StatusBadRequest,
+			"msg":  "you are not author",
+			"ok":   false,
+		})
+		return
+	}
 
 	service.UpdateArticle(newContent, id)
 	c.JSON(http.StatusOK, gin.H{
@@ -72,6 +87,9 @@ func ReadArticle(c *gin.Context) {
 	id, _ := strconv.Atoi(idString)
 
 	article := service.SelectArticle(id)
+
+	//发送一次请求就增加一次点击数
+	service.AddArticleClick(c, id)
 
 	c.JSON(http.StatusOK, gin.H{
 		"code": http.StatusOK,

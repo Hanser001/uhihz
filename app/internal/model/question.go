@@ -5,7 +5,7 @@ import "time"
 type Question struct {
 	Id         int
 	Uid        int
-	title      string
+	Title      string
 	Content    string
 	CreateTime time.Time
 	UpdateTime time.Time

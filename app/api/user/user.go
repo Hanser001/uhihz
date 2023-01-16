@@ -110,12 +110,12 @@ func NewPassword(c *gin.Context) {
 
 // PersonalSignature 设置个性签名
 func PersonalSignature(c *gin.Context) {
-	personalSignature := c.PostForm("personalSignature")
+	newPersonalSignature := c.PostForm("newPersonalSignature")
 
 	//从token中取出uid，没有则跳转登录页
 	id := c.MustGet("uid").(int)
 
-	service.SetPersonalSign(personalSignature, id)
+	service.SetPersonalSign(newPersonalSignature, id)
 
 	c.JSON(http.StatusOK, gin.H{
 		"code": http.StatusOK,

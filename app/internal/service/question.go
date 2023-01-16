@@ -1,23 +1,32 @@
 package service
 
 import (
+	"context"
+	"fmt"
+	"github.com/go-redis/redis/v8"
+	"strconv"
 	g "zhihu/app/global"
 	"zhihu/app/internal/model"
 )
 
 // PublicQuestion 发布问题
-func PublicQuestion(uid int, title string, content string) {
-	sqlStr := "insert into question(uid,title,content) values(?,?,?)"
+func PublicQuestion(uid int, title string, content string) error {
+	sqlStr := "insert into question(uid,title,content) values (?,?,?)"
 	stmt, err := g.Mysql.Prepare(sqlStr)
 
 	if err != nil {
 		g.Logger.Error("prepare failed")
-		return
+		return err
 	}
 
 	defer stmt.Close()
 
-	stmt.Exec(uid, title, content)
+	_, err = stmt.Exec(uid, title, content)
+	if err != nil {
+		g.Logger.Error(err.Error())
+		return err
+	}
+	return nil
 }
 
 // UpdateQuestion 更新问题描述
@@ -33,6 +42,25 @@ func UpdateQuestion(newContent string, id int) {
 	defer stmt.Close()
 
 	stmt.Exec(newContent, id)
+}
+
+// GetQuestionerId 取得提问者id
+func GetQuestionerId(id int) int {
+	sqlStr := "select uid from question where id=?"
+	stmt, err := g.Mysql.Prepare(sqlStr)
+
+	if err != nil {
+		g.Logger.Error("prepare failed")
+		return 0
+	}
+
+	defer stmt.Close()
+
+	var q model.Question
+	stmt.QueryRow(id).Scan(&q.Uid)
+
+	questionerId := q.Uid
+	return questionerId
 }
 
 // CollectQuestion 对问题的收藏
@@ -64,8 +92,15 @@ func SelectQuestion(id int) model.Question {
 	defer stmt.Close()
 
 	var q model.Question
-	stmt.QueryRow(id).Scan(&q.Uid, &q.CreateTime, &q.UpdateTime, &q.Content)
+	stmt.QueryRow(id).Scan(&q.Id, &q.Uid, &q.Title, &q.Content, &q.CreateTime, &q.UpdateTime)
 	return q
+}
+
+// AddQuestionClick 增加问题点击量
+func AddQuestionClick(ctx context.Context, qid int) {
+	key := fmt.Sprintf("questionClick:%s", strconv.Itoa(qid))
+
+	g.Redis.Incr(ctx, key)
 }
 
 // DeleteQuestion 删除问题
@@ -113,6 +148,7 @@ func PublicAnswer(qid, uid int, content string) {
 
 	if err != nil {
 		g.Logger.Error(err.Error())
+		return
 	}
 
 	defer stmt.Close()
@@ -127,6 +163,7 @@ func CommentTheAnswer(qid, uid, pid int, content string) {
 
 	if err != nil {
 		g.Logger.Error(err.Error())
+		return
 	}
 
 	defer stmt.Close()
@@ -141,9 +178,68 @@ func ReplyToComment(qid, uid, pid, toUid int, content string) {
 
 	if err != nil {
 		g.Logger.Error(err.Error())
+		return
 	}
 
 	defer stmt.Close()
 
 	stmt.Exec(qid, uid, pid, toUid, content)
+}
+
+// LikeToQuestion 点赞问题
+func LikeToQuestion(ctx context.Context, qid int, uid int) {
+	//以question:id为key,userLike:id为value，将所以用户id存入一个set
+	key := fmt.Sprintf("question:%s", strconv.Itoa(qid))
+	value := fmt.Sprintf("userLike:%s", strconv.Itoa(uid))
+
+	intCmd := g.Redis.SAdd(ctx, key, value)
+	_, err := intCmd.Result()
+
+	if err != nil {
+		g.Logger.Error(err.Error())
+		return
+	}
+}
+
+// LikeToAnswer 点赞回答
+func LikeToAnswer(ctx context.Context, aid int, uid int) {
+	key := fmt.Sprintf("answer:%s", strconv.Itoa(aid))
+	value := fmt.Sprintf("userLike:%s", strconv.Itoa(uid))
+
+	intCmd := g.Redis.SAdd(ctx, key, value)
+	_, err := intCmd.Result()
+
+	if err != nil {
+		g.Logger.Error(err.Error())
+		return
+	}
+}
+
+// LikeAnswerComment 点赞评论
+func LikeAnswerComment(ctx context.Context, cid int, uid int) {
+	key := fmt.Sprintf("answerComment:%s", strconv.Itoa(cid))
+	value := fmt.Sprintf("userLike:%s", strconv.Itoa(uid))
+
+	intCmd := g.Redis.SAdd(ctx, key, value)
+	_, err := intCmd.Result()
+
+	if err != nil {
+		g.Logger.Error(err.Error())
+		return
+	}
+}
+
+// UpdateQuestionHot 更新问题热度值
+func UpdateQuestionHot(ctx context.Context, qid int, hot int) {
+	key := "questionHot"
+	value := &redis.Z{
+		Score:  float64(hot),
+		Member: qid,
+	}
+
+	_, err := g.Redis.ZAdd(ctx, key, value).Result()
+
+	if err != nil {
+		g.Logger.Error(err.Error())
+	}
 }

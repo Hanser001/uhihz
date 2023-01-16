@@ -23,8 +23,14 @@ func NewQuestion(c *gin.Context) {
 
 	//从token中取得作者id
 	uid := c.MustGet("uid").(int)
+	err := service.PublicQuestion(uid, title, content)
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"msg": err.Error(),
+		})
+		return
+	}
 
-	service.PublicQuestion(uid, title, content)
 	c.JSON(http.StatusOK, gin.H{
 		"code": http.StatusOK,
 		"msg":  "public question successfully",
@@ -36,9 +42,22 @@ func NewQuestion(c *gin.Context) {
 func UpdateQuestion(c *gin.Context) {
 	newContent := c.PostForm("content")
 
-	//这个id应该是问题id，但如何验证当前用户身份？
+	//解析api参数取得问题id
 	idString := c.Param("id")
 	id, _ := strconv.Atoi(idString)
+
+	//从token中取出当前用户id,在查询文章作者id，进行比较
+	uid := c.MustGet("uid").(int)
+	questionerId := service.GetQuestionerId(id)
+
+	if uid != questionerId {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"code": http.StatusBadRequest,
+			"msg":  "you are not the questioner",
+			"ok":   false,
+		})
+		return
+	}
 
 	service.UpdateQuestion(newContent, id)
 
@@ -56,6 +75,9 @@ func ReadQuestion(c *gin.Context) {
 	id, _ := strconv.Atoi(idString)
 
 	question := service.SelectQuestion(id)
+
+	//每次发送请求就会增加一次问题点击量
+	service.AddQuestionClick(c, id)
 
 	c.JSON(http.StatusOK, gin.H{
 		"code": http.StatusOK,

@@ -14,15 +14,29 @@ func InitRouters() *gin.Engine {
 
 	api := r.Group("/api")
 	v1 := api.Group("/v1")
+
 	users := v1.Group("users")
+	{
+		users.POST("/register", user.Register)
+		users.POST("login", user.Login)
+		users.GET("/:id", user.PersonalInfo)
+		users.PUT("/security/password", user.NewPassword)
+		users.PUT("/info/username", middleware.JWTAuthMiddleware(), user.Usernames)
+		users.PUT("/info/personalSignature", middleware.JWTAuthMiddleware(), user.PersonalSignature)
+	}
 
-	users.POST("/register", user.Register)
-	users.POST("login", user.Login)
-	users.GET("/:id", user.PersonalInfo)
-	users.PUT("/security/password", user.NewPassword)
+	articles := v1.Group("articles")
+	{
+		articles.POST("/new", middleware.JWTAuthMiddleware(), user.NewArticle)
+		articles.PUT("/new/:id", middleware.JWTAuthMiddleware(), user.UpdateArticle)
+		articles.GET("/content/:id", user.ReadArticle)
+	}
 
-	users.PUT("/info/username", middleware.JWTAuthMiddleware(), user.Usernames)
-	users.PUT("/info/personalSignature", middleware.JWTAuthMiddleware(), user.PersonalSignature)
-
+	questions := v1.Group("questions")
+	{
+		questions.POST("/new", middleware.JWTAuthMiddleware(), user.NewQuestion)
+		questions.PUT("/new/:id", middleware.JWTAuthMiddleware(), user.UpdateQuestion)
+		questions.GET("/content/:id", user.ReadQuestion)
+	}
 	return r
 }
