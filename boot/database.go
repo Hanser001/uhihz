@@ -34,7 +34,7 @@ func MysqlSet() {
 }
 
 func RedisSet() {
-	//config := g.Config.Database.Redis 用config配置报错空指针，先直连进行测试
+	//config := g.Config.Database.Redis 用配置文件会报错空指针，先直连进行测试
 
 	rdb := redis.NewClient(&redis.Options{
 		Addr:     "39.101.68.42:6379",
@@ -44,7 +44,7 @@ func RedisSet() {
 		Network:  "tcp",
 	})
 
-	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
 	defer cancel()
 	_, err := rdb.Ping(ctx).Result()
 	if err != nil {

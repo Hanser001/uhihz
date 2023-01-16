@@ -21,5 +21,8 @@ func InitRouters() *gin.Engine {
 	users.GET("/:id", user.PersonalInfo)
 	users.PUT("/security/password", user.NewPassword)
 
+	users.PUT("/info/username", middleware.JWTAuthMiddleware(), user.Usernames)
+	users.PUT("/info/personalSignature", middleware.JWTAuthMiddleware(), user.PersonalSignature)
+
 	return r
 }

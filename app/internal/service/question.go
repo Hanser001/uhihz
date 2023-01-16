@@ -105,3 +105,45 @@ func GetUserQuestionCollection(uid int) []int {
 
 	return QuestionFavorites
 }
+
+// PublicAnswer 发布对问题的回答
+func PublicAnswer(qid, uid int, content string) {
+	sqlStr := "insert into answer_comment(qid,uid,content) values (?,?,?)"
+	stmt, err := g.Mysql.Prepare(sqlStr)
+
+	if err != nil {
+		g.Logger.Error(err.Error())
+	}
+
+	defer stmt.Close()
+
+	stmt.Exec(qid, uid, content)
+}
+
+// CommentTheAnswer 评论对问题的回答
+func CommentTheAnswer(qid, uid, pid int, content string) {
+	sqlStr := "insert into answer_comment(qid,uid,pid,content) valuse(?,?,?,?)"
+	stmt, err := g.Mysql.Prepare(sqlStr)
+
+	if err != nil {
+		g.Logger.Error(err.Error())
+	}
+
+	defer stmt.Close()
+
+	stmt.Exec(qid, uid, pid, content)
+}
+
+// ReplyToComment 对评论进行回复
+func ReplyToComment(qid, uid, pid, toUid int, content string) {
+	sqlStr := "insert into answer_comment(qid,uid,pid,toUid,content) values (?,?,?,?,?)"
+	stmt, err := g.Mysql.Prepare(sqlStr)
+
+	if err != nil {
+		g.Logger.Error(err.Error())
+	}
+
+	defer stmt.Close()
+
+	stmt.Exec(qid, uid, pid, toUid, content)
+}

@@ -21,6 +21,7 @@ func Usernames(c *gin.Context) {
 	}
 
 	err := service.SelectUserExists(newUsername)
+
 	if err != nil {
 		if err.Error() == "user already exists" {
 			c.JSON(http.StatusInternalServerError, gin.H{

@@ -110,3 +110,50 @@ func GetUserArticleCollection(uid int) []int {
 
 	return ArticleFavorites
 }
+
+// PublicComment 发表对文章评论
+func PublicComment(aid, uid int, content string) {
+	sqlStr := "insert into article_comment(aid,uid,cotent) values (?,?,?)"
+	stmt, err := g.Mysql.Prepare(sqlStr)
+
+	if err != nil {
+		g.Logger.Error(err.Error())
+	}
+
+	defer stmt.Close()
+
+	stmt.Exec(aid, uid, content)
+}
+
+// CommentTheComment 对评论(一级评论)进行评论(二级评论)
+func CommentTheComment(aid, uid, pid int, content string) {
+	sqlStr := "insert into article_comment(aid,uid,pid,content) values (?,?,?,?)"
+	stmt, err := g.Mysql.Prepare(sqlStr)
+
+	if err != nil {
+		g.Logger.Error(err.Error())
+	}
+
+	defer stmt.Close()
+
+	stmt.Exec(aid, uid, pid, content)
+}
+
+// ReplyTheComment 对评论进行回复
+func ReplyTheComment(aid, uid, pid, toUid int, content string) {
+	sqlStr := "insert into article_comment(aid,uid,pid,toUid,content) values (?,?,?)"
+	stmt, err := g.Mysql.Prepare(sqlStr)
+
+	if err != nil {
+		g.Logger.Error(err.Error())
+	}
+
+	defer stmt.Close()
+
+	stmt.Exec(aid, uid, pid, toUid, content)
+}
+
+// 点赞评论
+func AddLike() {
+
+}
