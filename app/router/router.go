@@ -2,6 +2,8 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
+	"zhihu/app/api/article"
+	"zhihu/app/api/question"
 	"zhihu/app/api/user"
 	g "zhihu/app/global"
 	"zhihu/app/internal/middleware"
@@ -27,16 +29,23 @@ func InitRouters() *gin.Engine {
 
 	articles := v1.Group("articles")
 	{
-		articles.POST("/new", middleware.JWTAuthMiddleware(), user.NewArticle)
-		articles.PUT("/new/:id", middleware.JWTAuthMiddleware(), user.UpdateArticle)
-		articles.GET("/content/:id", user.ReadArticle)
+		articles.POST("/new", middleware.JWTAuthMiddleware(), article.NewArticle)
+		articles.PUT("/new/:id", middleware.JWTAuthMiddleware(), article.UpdateArticle)
+		articles.GET("/content/:id", article.ReadArticle)
+		articles.POST("/:id/comment", middleware.JWTAuthMiddleware(), article.NewComment)
+		articles.POST("/:id/comment/comment", middleware.JWTAuthMiddleware(), article.NewCommentToParentComment)
+		articles.POST("/:id/reply", middleware.JWTAuthMiddleware(), article.NewReply)
 	}
 
 	questions := v1.Group("questions")
 	{
-		questions.POST("/new", middleware.JWTAuthMiddleware(), user.NewQuestion)
-		questions.PUT("/new/:id", middleware.JWTAuthMiddleware(), user.UpdateQuestion)
-		questions.GET("/content/:id", user.ReadQuestion)
+		questions.POST("/new", middleware.JWTAuthMiddleware(), question.NewQuestion)
+		questions.PUT("/new/:id", middleware.JWTAuthMiddleware(), question.UpdateQuestion)
+		questions.GET("/content/:id", question.ReadQuestion)
+		questions.POST("/:id/answer", middleware.JWTAuthMiddleware(), question.NewAnswer)
+		questions.POST("/:id/comment", middleware.JWTAuthMiddleware(), question.NewCommentToAnswer)
+		questions.POST("/:id/reply", middleware.JWTAuthMiddleware(), question.ReplyNew)
 	}
+
 	return r
 }

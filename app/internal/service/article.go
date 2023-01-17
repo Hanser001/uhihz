@@ -146,7 +146,7 @@ func GetUserArticleCollection(uid int) []int {
 
 // PublicComment 发表对文章评论
 func PublicComment(aid, uid int, content string) error {
-	sqlStr := "insert into article_comment(aid,uid,cotent) values (?,?,?)"
+	sqlStr := "insert into article_comment(aid,uid,content) values (?,?,?)"
 	stmt, err := g.Mysql.Prepare(sqlStr)
 
 	if err != nil {
@@ -189,7 +189,7 @@ func CommentTheComment(aid, uid, pid int, content string) error {
 
 // ReplyTheComment 对评论进行回复
 func ReplyTheComment(aid, uid, pid, toUid int, content string) error {
-	sqlStr := "insert into article_comment(aid,uid,pid,toUid,content) values (?,?,?)"
+	sqlStr := "insert into article_comment(aid,uid,pid,toUid,content) values (?,?,?,?,?)"
 	stmt, err := g.Mysql.Prepare(sqlStr)
 
 	if err != nil {
@@ -206,6 +206,13 @@ func ReplyTheComment(aid, uid, pid, toUid int, content string) error {
 	}
 
 	return nil
+}
+
+// AddArticleCommentNum 增加文章评论数
+func AddArticleCommentNum(ctx context.Context, aid int) {
+	key := fmt.Sprintf("articleCommentNum:%s", strconv.Itoa(aid))
+
+	g.Redis.Incr(ctx, key)
 }
 
 // LikeToArticle 点赞文章
@@ -236,6 +243,13 @@ func UnlikeToArticle(aid int, uid int, ctx context.Context) {
 		g.Logger.Error(err.Error())
 		return
 	}
+}
+
+// AddArticleLikeNum 增加文章点赞数
+func AddArticleLikeNum(ctx context.Context, aid int) {
+	key := fmt.Sprintf("articleLikeNum:%s", strconv.Itoa(aid))
+
+	g.Redis.Incr(ctx, key)
 }
 
 // LikeArticleComment 点赞文章下评论（回复）
