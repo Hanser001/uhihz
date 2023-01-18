@@ -37,7 +37,7 @@ func NewComment(c *gin.Context) {
 	}
 
 	//评论一次就为文章评论数加一
-	service.AddArticleCommentNum(c, id)
+	service.NewArticleCommentNum(c, id, 1)
 
 	c.JSON(http.StatusOK, gin.H{
 		"code": http.StatusOK,
@@ -80,7 +80,7 @@ func NewCommentToParentComment(c *gin.Context) {
 	}
 
 	//评论一次就为文章评论数加一
-	service.AddArticleCommentNum(c, id)
+	service.NewArticleCommentNum(c, id, 1)
 
 	c.JSON(http.StatusOK, gin.H{
 		"code": http.StatusOK,
@@ -125,11 +125,83 @@ func NewReply(c *gin.Context) {
 	}
 
 	//评论一次就为文章评论数加一
-	service.AddArticleCommentNum(c, id)
+	service.NewArticleCommentNum(c, id, 1)
 
 	c.JSON(http.StatusOK, gin.H{
 		"code": http.StatusOK,
 		"msg":  "reply",
 		"ok":   true,
 	})
+}
+
+// DeleteComment 删除评论（回复）
+func DeleteComment(c *gin.Context) {
+	//解析api参数得到文章id
+	aidString := c.Param("aid")
+	aid, _ := strconv.Atoi(aidString)
+
+	//解析url参数得到评论id
+	cidString := c.Query("cid")
+	cid, _ := strconv.Atoi(cidString)
+
+	//取得评论者id
+	err, rid := service.GetReviewerId(cid)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"code": http.StatusInternalServerError,
+			"msg":  err.Error(),
+			"ok":   false,
+		})
+		return
+	}
+
+	//从token中取出当前用户id，进行校验
+	uid := c.MustGet("uid").(int)
+
+	if uid != rid {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"code": http.StatusInternalServerError,
+			"msg":  "no auth",
+			"ok":   false,
+		})
+		return
+	}
+
+	err = service.DeleteComment(cid)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"code": http.StatusInternalServerError,
+			"msg":  err.Error(),
+			"ok":   false,
+		})
+		return
+	}
+
+	//删除评论就减少文章评论数
+	service.NewArticleCommentNum(c, aid, -1)
+
+	c.JSON(http.StatusOK, gin.H{
+		"code": http.StatusOK,
+		"msg":  "deleted",
+		"ok":   true,
+	})
+}
+
+// GetComment 查看评论
+func GetComment(c *gin.Context) {
+	//从url参数解析出评论id
+	cidString := c.Query("cid")
+	cid, _ := strconv.Atoi(cidString)
+
+	err, commentInfo := service.ReadComment(cid)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"code": http.StatusInternalServerError,
+			"msg":  err.Error(),
+			"ok":   false,
+		})
+		return
+	}
+
+	c.JSON(http.StatusOK, commentInfo)
 }

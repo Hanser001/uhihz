@@ -63,24 +63,8 @@ func GetQuestionerId(id int) int {
 	return questionerId
 }
 
-// CollectQuestion 对问题的收藏
-func CollectQuestion(uid, qid int) {
-	sqlStr := "insert into question_collection(uid,qid) values (?,?)"
-
-	stmt, err := g.Mysql.Prepare(sqlStr)
-
-	if err != nil {
-		g.Logger.Error("prepare failed")
-		return
-	}
-
-	defer stmt.Close()
-
-	stmt.Exec(uid, qid)
-}
-
-// SelectQuestion 查看问题详细内容
-func SelectQuestion(id int) model.Question {
+// ReadQuestion 查看问题详细内容
+func ReadQuestion(id int) model.Question {
 	sqlStr := "select * from question where id=?"
 
 	stmt, err := g.Mysql.Prepare(sqlStr)
@@ -98,47 +82,48 @@ func SelectQuestion(id int) model.Question {
 
 // AddQuestionClick 增加问题点击量
 func AddQuestionClick(ctx context.Context, qid int) {
-	key := fmt.Sprintf("questionClick:%s", strconv.Itoa(qid))
+	//将问题的点击量，点赞量都放在一个hash里
+	key := fmt.Sprintf("question:%s", strconv.Itoa(qid))
+	filed := "clickNum"
 
-	g.Redis.Incr(ctx, key)
+	g.Redis.HIncrBy(ctx, key, filed, 1)
 }
 
 // DeleteQuestion 删除问题
-func DeleteQuestion(id int) {
-	sqlStr := "delete from question where id=?"
-	stmt, err := g.Mysql.Prepare(sqlStr)
+func DeleteQuestion(id int) error {
+	//用一个事务进行删除
+	tx, err := g.Mysql.Begin()
 	if err != nil {
 		g.Logger.Error(err.Error())
+		return err
 	}
 
-	defer stmt.Close()
+	//既删除问题本身，还要删除附属于它的回答和评论
+	sqlStr1 := "delete from question where id=?"
+	sqlStr2 := "delete from answer_comment where qid=?"
 
-	stmt.Exec(id)
-}
-
-// GetUserQuestionCollection 获取问题收藏表
-func GetUserQuestionCollection(uid int) []int {
-	sqlStr := "select * from article_collection where uid=?"
-	stmt, err := g.Mysql.Prepare(sqlStr)
+	_, err = tx.Exec(sqlStr1, id)
 	if err != nil {
+		tx.Rollback()
 		g.Logger.Error(err.Error())
+		return err
 	}
 
-	defer stmt.Close()
-
-	var QuestionFavorites []int
-
-	rows, err := stmt.Query(uid)
-	for rows.Next() {
-		var a model.ArticleCollection
-		err := rows.Scan(&a.Aid)
-		if err != nil {
-			g.Logger.Error(err.Error())
-		}
-		QuestionFavorites = append(QuestionFavorites, a.Aid)
+	_, err = tx.Exec(sqlStr2, id)
+	if err != nil {
+		tx.Rollback()
+		g.Logger.Error(err.Error())
+		return err
 	}
 
-	return QuestionFavorites
+	err = tx.Commit()
+	if err != nil {
+		tx.Rollback()
+		g.Logger.Error(err.Error())
+		return err
+	}
+
+	return nil
 }
 
 // PublicAnswer 发布对问题的回答
@@ -159,6 +144,28 @@ func PublicAnswer(qid, uid int, content string) error {
 		g.Logger.Error(err.Error())
 		return err
 	}
+	return nil
+}
+
+// UpdateAnswer 更新自己的回答
+func UpdateAnswer(content string, id int) error {
+	sqlStr := "update answer_comment set content=? where id=?"
+	stmt, err := g.Mysql.Prepare(sqlStr)
+
+	if err != nil {
+		g.Logger.Error(err.Error())
+		return err
+	}
+
+	defer stmt.Close()
+
+	_, err = stmt.Exec(content, id)
+
+	if err != nil {
+		g.Logger.Error(err.Error())
+		return err
+	}
+
 	return nil
 }
 
@@ -204,10 +211,120 @@ func ReplyToComment(qid, uid, pid, toUid int, content string) error {
 	return nil
 }
 
+// ReadReview 取得回复详细内容
+func ReadReview(id int) (error, model.AnswerComment) {
+	sqlStr := "select * from answer_comment where id=?"
+	stmt, err := g.Mysql.Prepare(sqlStr)
+
+	if err != nil {
+		g.Logger.Error(err.Error())
+		return err, model.AnswerComment{}
+	}
+
+	var a model.AnswerComment
+	err = stmt.QueryRow(id).Scan(&a.Id, &a.Qid, &a.Uid, &a.Pid, &a.ToUid, &a.Content, &a.CreateTime, &a.UpdateTime)
+
+	if err != nil {
+		g.Logger.Error(err.Error())
+		return err, model.AnswerComment{}
+	}
+
+	return nil, a
+}
+
+// DeleteReview 删除回复
+func DeleteReview(cid int) error {
+	sqlStr := "delete from answer_comment where id=?"
+	stmt, err := g.Mysql.Prepare(sqlStr)
+
+	if err != nil {
+		g.Logger.Error(err.Error())
+		return err
+	}
+
+	_, err = stmt.Exec(cid)
+	if err != nil {
+		g.Logger.Error(err.Error())
+		return err
+	}
+
+	return nil
+}
+
+// GetAnswererId 取得答者id
+func GetAnswererId(cid int) (error, int) {
+	sqlStr := "select uid,pid from answer_comment where id=?"
+	stmt, err := g.Mysql.Prepare(sqlStr)
+
+	if err != nil {
+		g.Logger.Error(err.Error())
+		return err, 0
+	}
+
+	defer stmt.Close()
+
+	var u model.User
+	err = stmt.QueryRow(cid).Scan(&u.Id)
+	if err != nil {
+		g.Logger.Error(err.Error())
+		return err, 0
+	}
+
+	return nil, u.Id
+}
+
+// UpdateQuestionAnswerNum 更新问题回答数
+func UpdateQuestionAnswerNum(ctx context.Context, qid int, incr int) {
+	//每当发布(删除)回答就调用它
+	//用哈希表存放问题的点击量，回答数，点赞量
+	key := fmt.Sprintf("question:%s", strconv.Itoa(qid))
+	filed := "answerNum"
+
+	g.Redis.HIncrBy(ctx, key, filed, int64(incr))
+}
+
 // LikeToQuestion 点赞问题
 func LikeToQuestion(ctx context.Context, qid int, uid int) {
-	//以question:id为key,userLike:id为value，将所以用户id存入一个set
+	key := fmt.Sprintf("questionLike:%s", strconv.Itoa(qid))
+	value := fmt.Sprintf("userLike:%s", strconv.Itoa(uid))
+
+	//把点赞用户id放入一个set
+	intCmd := g.Redis.SAdd(ctx, key, value)
+	_, err := intCmd.Result()
+
+	if err != nil {
+		g.Logger.Error(err.Error())
+		return
+	}
+}
+
+// UnlikeToQuestion 取消对问题点赞
+func UnlikeToQuestion(ctx context.Context, qid int, uid int) {
+	key := fmt.Sprintf("questionLike:%s", strconv.Itoa(qid))
+	value := fmt.Sprintf("userLike:%s", strconv.Itoa(uid))
+
+	//把点赞用户id从set中删除
+	intCmd := g.Redis.SRem(ctx, key, value)
+	_, err := intCmd.Result()
+
+	if err != nil {
+		g.Logger.Error(err.Error())
+		return
+	}
+}
+
+// UpdateQuestionLikeNum 更新问题点赞数
+func UpdateQuestionLikeNum(ctx context.Context, qid int, incr int) {
 	key := fmt.Sprintf("question:%s", strconv.Itoa(qid))
+	filed := "likeNum"
+
+	//点赞时incr为1，取消点赞时incr为-1
+	g.Redis.HIncrBy(ctx, key, filed, int64(incr))
+}
+
+// LikeToAnswer 点赞回答(评论/回复)
+func LikeToAnswer(ctx context.Context, cid int, uid int) {
+	key := fmt.Sprintf("answerLike:%s", strconv.Itoa(cid))
 	value := fmt.Sprintf("userLike:%s", strconv.Itoa(uid))
 
 	intCmd := g.Redis.SAdd(ctx, key, value)
@@ -219,12 +336,12 @@ func LikeToQuestion(ctx context.Context, qid int, uid int) {
 	}
 }
 
-// LikeToAnswer 点赞回答
-func LikeToAnswer(ctx context.Context, aid int, uid int) {
-	key := fmt.Sprintf("answer:%s", strconv.Itoa(aid))
+// UnlikeToAnswer 取消对回答(评论/回复)点赞
+func UnlikeToAnswer(ctx context.Context, cid int, uid int) {
+	key := fmt.Sprintf("answerLike:%s", strconv.Itoa(cid))
 	value := fmt.Sprintf("userLike:%s", strconv.Itoa(uid))
 
-	intCmd := g.Redis.SAdd(ctx, key, value)
+	intCmd := g.Redis.SRem(ctx, key, value)
 	_, err := intCmd.Result()
 
 	if err != nil {
@@ -233,18 +350,28 @@ func LikeToAnswer(ctx context.Context, aid int, uid int) {
 	}
 }
 
-// LikeAnswerComment 点赞评论
-func LikeAnswerComment(ctx context.Context, cid int, uid int) {
-	key := fmt.Sprintf("answerComment:%s", strconv.Itoa(cid))
+// JudgeLikeToQuestion 判断用户是否对某一问题点赞
+func JudgeLikeToQuestion(ctx context.Context, qid int, uid int) bool {
+	key := fmt.Sprintf("questionLike:%s", strconv.Itoa(qid))
 	value := fmt.Sprintf("userLike:%s", strconv.Itoa(uid))
 
-	intCmd := g.Redis.SAdd(ctx, key, value)
-	_, err := intCmd.Result()
+	strCmd := g.Redis.SIsMember(ctx, key, value)
 
-	if err != nil {
-		g.Logger.Error(err.Error())
-		return
-	}
+	flag, _ := strCmd.Result()
+
+	return flag
+}
+
+// JudgeLikeToAnswer 判断用户是否对某一回答（评论)点赞
+func JudgeLikeToAnswer(ctx context.Context, cid int, uid int) bool {
+	key := fmt.Sprintf("answerLike:%s", strconv.Itoa(cid))
+	value := fmt.Sprintf("userLike:%s", strconv.Itoa(uid))
+
+	strCmd := g.Redis.SIsMember(ctx, key, value)
+
+	flag, _ := strCmd.Result()
+
+	return flag
 }
 
 // UpdateQuestionHot 更新问题热度值

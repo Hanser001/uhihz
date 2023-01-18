@@ -46,7 +46,7 @@ func UpdateQuestion(c *gin.Context) {
 	idString := c.Param("id")
 	id, _ := strconv.Atoi(idString)
 
-	//从token中取出当前用户id,在查询文章作者id，进行比较
+	//从token中取出当前用户id,查询提问者id，进行比较
 	uid := c.MustGet("uid").(int)
 	questionerId := service.GetQuestionerId(id)
 
@@ -74,7 +74,7 @@ func ReadQuestion(c *gin.Context) {
 	idString := c.Param("id")
 	id, _ := strconv.Atoi(idString)
 
-	question := service.SelectQuestion(id)
+	question := service.ReadQuestion(id)
 
 	//每次发送请求就会增加一次问题点击量
 	service.AddQuestionClick(c, id)
@@ -83,5 +83,41 @@ func ReadQuestion(c *gin.Context) {
 		"code": http.StatusOK,
 		"msg":  "get the question",
 		"data": question,
+	})
+}
+
+// DeleteQuestion 删除问题
+func DeleteQuestion(c *gin.Context) {
+	//解析API参数，得到问题id
+	idString := c.Param("id")
+	id, _ := strconv.Atoi(idString)
+
+	//从token中取出当前用户id,查询提问者id，进行比较
+	uid := c.MustGet("uid").(int)
+	questionerId := service.GetQuestionerId(id)
+
+	if uid != questionerId {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"code": http.StatusBadRequest,
+			"msg":  "you are not the questioner",
+			"ok":   false,
+		})
+		return
+	}
+
+	//删除问题及其相关数据
+	err := service.DeleteQuestion(id)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"code": http.StatusInternalServerError,
+			"msg":  err.Error(),
+		})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{
+		"code": http.StatusOK,
+		"msg":  "delete question successfully",
+		"ok":   true,
 	})
 }

@@ -189,3 +189,107 @@ func GetUid(username string) int {
 
 	return u.Id
 }
+
+// GetUserArticles 取得用户发布的文章
+func GetUserArticles(uid int) ([]model.Article, error) {
+	sqlStr := "select * from article where uid=?"
+	stmt, err := g.Mysql.Prepare(sqlStr)
+	if err != nil {
+		g.Logger.Error(err.Error())
+		return []model.Article{}, err
+	}
+
+	defer stmt.Close()
+
+	var Articles []model.Article
+
+	rows, err := stmt.Query(uid)
+
+	defer rows.Close()
+
+	for rows.Next() {
+		var a model.Article
+		err := rows.Scan(&a.Id, &a.Uid, &a.Title, &a.Content, &a.CreateTime, &a.UpdateTime)
+
+		if err != nil {
+			g.Logger.Error(err.Error())
+			return []model.Article{}, err
+		}
+
+		Articles = append(Articles, a)
+	}
+
+	return Articles, nil
+}
+
+// GetUserArticleCollection 获取用户文章收藏表
+func GetUserArticleCollection(uid int) ([]model.Article, error) {
+	sqlStr := "select * from article where id = (select aid from article_collection where uid=?)"
+	stmt, err := g.Mysql.Prepare(sqlStr)
+	if err != nil {
+		g.Logger.Error(err.Error())
+		return []model.Article{}, err
+	}
+
+	defer stmt.Close()
+
+	var ArticleCollections []model.Article
+
+	rows, err := stmt.Query(uid)
+	if err != nil {
+		g.Logger.Error(err.Error())
+		return []model.Article{}, err
+	}
+
+	defer rows.Close()
+
+	for rows.Next() {
+		var a model.Article
+		err := rows.Scan(&a.Id, &a.Uid, &a.Title, &a.Content, &a.CreateTime, &a.UpdateTime)
+
+		if err != nil {
+			g.Logger.Error(err.Error())
+			return []model.Article{}, err
+		}
+
+		ArticleCollections = append(ArticleCollections, a)
+	}
+
+	return ArticleCollections, nil
+}
+
+// GetUserAnswer 取得用户的回答
+func GetUserAnswer(uid int) ([]model.AnswerComment, error) {
+	sqlStr := "select qid,content,createTime,updateTime from answer_comment where uid=?"
+	stmt, err := g.Mysql.Prepare(sqlStr)
+	if err != nil {
+		g.Logger.Error(err.Error())
+		return []model.AnswerComment{}, err
+	}
+
+	defer stmt.Close()
+
+	var answers []model.AnswerComment
+
+	rows, err := stmt.Query(uid)
+	if err != nil {
+		g.Logger.Error(err.Error())
+		return []model.AnswerComment{}, err
+	}
+
+	defer rows.Close()
+
+	for rows.Next() {
+		var a model.AnswerComment
+		err := rows.Scan(&a.Qid, &a.Content, &a.Content, &a.UpdateTime)
+
+		if err != nil {
+			g.Logger.Error(err.Error())
+			return []model.AnswerComment{}, err
+		}
+
+		answers = append(answers, a)
+	}
+
+	return answers, nil
+}

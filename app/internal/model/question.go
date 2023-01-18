@@ -11,10 +11,12 @@ type Question struct {
 	UpdateTime time.Time
 }
 
-type Answer struct {
+type AnswerComment struct {
 	Id         int
 	Qid        int
 	Uid        int
+	Pid        int
+	ToUid      int
 	Content    string
 	CreateTime time.Time
 	UpdateTime time.Time
