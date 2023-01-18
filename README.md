@@ -156,6 +156,17 @@ g.Redis.HIncrBy(ctx, key, filed, int64(incr))
 
 同提问缓存
 
+##### 点赞缓存
+
+用set存对文章、评论、提问、回答进行点赞的用户id，避免重复点赞
+![image-20230118214805616](https://typora-1314425967.cos.ap-nanjing.myqcloud.com/typora/image-20230118214805616.png)
+![image-20230118214826301](https://typora-1314425967.cos.ap-nanjing.myqcloud.com/typora/image-20230118214826301.png)
+
+### 🔎完成情况总结
+
+- 基础功能完成
+- 加分项实现了密码加密；用户状态保存使用JWT；在文章和提问的一些情境下使用缓存；SQL语句做预处理防止sql注入
+
 ### 👓TODO
 
 - [x] 注册登录

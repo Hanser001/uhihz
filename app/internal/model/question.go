@@ -16,7 +16,7 @@ type AnswerComment struct {
 	Qid        int
 	Uid        int
 	Pid        int
-	ToUid      int
+	ToUid      *int
 	Content    string
 	CreateTime time.Time
 	UpdateTime time.Time
