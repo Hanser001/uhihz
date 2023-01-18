@@ -119,7 +119,7 @@ func NewCommentToAnswer(c *gin.Context) {
 	uid := c.MustGet("uid").(int)
 
 	//解析URL参数，得到父id
-	pidString := c.Query("parentId")
+	pidString := c.Query("pid")
 	pid, _ := strconv.Atoi(pidString)
 
 	err := service.CommentTheAnswer(id, uid, pid, content)

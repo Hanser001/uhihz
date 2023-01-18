@@ -260,7 +260,7 @@ func GetUserArticleCollection(uid int) ([]model.Article, error) {
 
 // GetUserAnswer 取得用户的回答
 func GetUserAnswer(uid int) ([]model.AnswerComment, error) {
-	sqlStr := "select qid,content,createTime,updateTime from answer_comment where uid=? and pid=0"
+	sqlStr := "select qid,content,createTime,updateTime from answer_comment where uid=? and pid is null"
 	stmt, err := g.Mysql.Prepare(sqlStr)
 	if err != nil {
 		g.Logger.Error(err.Error())

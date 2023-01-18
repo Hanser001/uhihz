@@ -171,7 +171,7 @@ func UpdateAnswer(content string, id int) error {
 
 // CommentTheAnswer 评论对问题的回答
 func CommentTheAnswer(qid, uid, pid int, content string) error {
-	sqlStr := "insert into answer_comment(qid,uid,pid,content) valuse(?,?,?,?)"
+	sqlStr := "insert into answer_comment(qid,uid,pid,content) values(?,?,?,?)"
 	stmt, err := g.Mysql.Prepare(sqlStr)
 
 	if err != nil {
@@ -253,7 +253,7 @@ func DeleteReview(cid int) error {
 
 // GetAnswererId 取得答者id
 func GetAnswererId(cid int) (error, int) {
-	sqlStr := "select uid,pid from answer_comment where id=?"
+	sqlStr := "select uid from answer_comment where id=?"
 	stmt, err := g.Mysql.Prepare(sqlStr)
 
 	if err != nil {
