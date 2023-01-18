@@ -3,6 +3,7 @@ package user
 import (
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"strconv"
 	"zhihu/app/internal/service"
 )
 
@@ -22,15 +23,14 @@ func GetArticleCollection(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{
-		"data": data,
-	})
+	c.JSON(http.StatusOK, data)
 }
 
 // GetUserAnswers 取得用户回答
 func GetUserAnswers(c *gin.Context) {
-	//从token取出uid
-	uid := c.MustGet("uid").(int)
+	//从api参数解析出用户id
+	uidString := c.Param("id")
+	uid, _ := strconv.Atoi(uidString)
 
 	data, err := service.GetUserAnswer(uid)
 
@@ -50,8 +50,9 @@ func GetUserAnswers(c *gin.Context) {
 
 // GetUserArticles 取得用户发布文章
 func GetUserArticles(c *gin.Context) {
-	//从token取出uid
-	uid := c.MustGet("uid").(int)
+	//从api参数解析出用户id
+	uidString := c.Param("id")
+	uid, _ := strconv.Atoi(uidString)
 
 	data, err := service.GetUserArticles(uid)
 
@@ -67,4 +68,24 @@ func GetUserArticles(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
 		"data": data,
 	})
+}
+
+// GetUserQuestions 取得用户提问
+func GetUserQuestions(c *gin.Context) {
+	//从api参数解析出用户id
+	uidString := c.Param("id")
+	uid, _ := strconv.Atoi(uidString)
+
+	data, err := service.GetUserQuestions(uid)
+
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"code": http.StatusInternalServerError,
+			"msg":  err.Error(),
+			"ok":   false,
+		})
+		return
+	}
+
+	c.JSON(http.StatusOK, data)
 }

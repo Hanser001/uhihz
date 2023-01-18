@@ -92,7 +92,7 @@ func Login(c *gin.Context) {
 	if !flag1 {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"code": http.StatusBadRequest,
-			"msg":  "invalid username or password",
+			"msg":  "invalid username",
 			"ok":   false,
 		})
 		return
@@ -104,7 +104,7 @@ func Login(c *gin.Context) {
 	if !flag2 {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"code": http.StatusBadRequest,
-			"msg":  "invalid password or password",
+			"msg":  "invalid password",
 			"ok":   false,
 		})
 		return

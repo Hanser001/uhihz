@@ -167,7 +167,7 @@ func CollectActionToArticle(c *gin.Context) {
 		//如果已经收藏过则拦截
 		c.JSON(http.StatusBadRequest, gin.H{
 			"code": http.StatusBadRequest,
-			"msg":  "cancel collect",
+			"msg":  "have collected",
 			"ok":   false,
 		})
 		return

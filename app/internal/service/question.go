@@ -275,7 +275,6 @@ func GetAnswererId(cid int) (error, int) {
 
 // UpdateQuestionAnswerNum 更新问题回答数
 func UpdateQuestionAnswerNum(ctx context.Context, qid int, incr int) {
-	//每当发布(删除)回答就调用它
 	//用哈希表存放问题的点击量，回答数，点赞量
 	key := fmt.Sprintf("question:%s", strconv.Itoa(qid))
 	filed := "answerNum"

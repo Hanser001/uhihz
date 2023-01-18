@@ -17,8 +17,8 @@ type ArticleComment struct {
 	Id         int
 	Aid        int
 	Uid        int
-	Pid        int
-	ToUid      int
+	Pid        *int
+	ToUid      *int
 	Content    string
 	CreateTime time.Time
 	UpdateTime time.Time

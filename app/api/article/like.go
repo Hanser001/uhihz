@@ -21,15 +21,13 @@ func LikeActionToArticle(c *gin.Context) {
 
 	if flag {
 		//若点过赞，则拦截
-		service.UnlikeToArticle(c, id, uid)
 		c.JSON(http.StatusBadRequest, gin.H{
 			"code": http.StatusBadRequest,
 			"msg":  "have liked",
 			"ok":   false,
 		})
-		return
 	} else if !flag {
-		//若未点赞,点击点赞则点赞
+		//若未点赞则点赞
 		service.LikeToArticle(c, id, uid)
 		c.JSON(http.StatusOK, gin.H{
 			"code": http.StatusOK,
@@ -123,6 +121,7 @@ func UnlikeActionToComment(c *gin.Context) {
 			"ok":   true,
 		})
 	} else if !flag {
+		//未点赞则拦截
 		c.JSON(http.StatusBadRequest, gin.H{
 			"code": http.StatusBadRequest,
 			"msg":  "not like!",

@@ -260,7 +260,7 @@ func GetUserArticleCollection(uid int) ([]model.Article, error) {
 
 // GetUserAnswer 取得用户的回答
 func GetUserAnswer(uid int) ([]model.AnswerComment, error) {
-	sqlStr := "select qid,content,createTime,updateTime from answer_comment where uid=?"
+	sqlStr := "select qid,content,createTime,updateTime from answer_comment where uid=? and pid=0"
 	stmt, err := g.Mysql.Prepare(sqlStr)
 	if err != nil {
 		g.Logger.Error(err.Error())
@@ -292,4 +292,41 @@ func GetUserAnswer(uid int) ([]model.AnswerComment, error) {
 	}
 
 	return answers, nil
+}
+
+// GetUserQuestions 取得用户所有提问
+func GetUserQuestions(uid int) ([]model.Question, error) {
+	sqlStr := "select title,content,createTime,updateTime from question where uid=?"
+	stmt, err := g.Mysql.Prepare(sqlStr)
+	if err != nil {
+		g.Logger.Error(err.Error())
+		return []model.Question{}, err
+
+	}
+
+	defer stmt.Close()
+
+	var questions []model.Question
+
+	rows, err := stmt.Query(uid)
+	if err != nil {
+		g.Logger.Error(err.Error())
+		return []model.Question{}, err
+	}
+
+	defer rows.Close()
+
+	for rows.Next() {
+		var q model.Question
+		err := rows.Scan(&q.Title, &q.Content, &q.CreateTime, &q.UpdateTime)
+
+		if err != nil {
+			g.Logger.Error(err.Error())
+			return []model.Question{}, err
+		}
+
+		questions = append(questions, q)
+	}
+
+	return questions, nil
 }

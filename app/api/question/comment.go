@@ -59,7 +59,7 @@ func UpdateAnswer(c *gin.Context) {
 	}
 
 	//取得回复id
-	cidString := c.Param("cid")
+	cidString := c.Query("cid")
 	cid, _ := strconv.Atoi(cidString)
 
 	//将用户id和答者id取出，进行校验
